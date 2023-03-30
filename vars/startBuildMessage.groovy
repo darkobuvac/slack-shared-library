@@ -2,18 +2,22 @@
 
 def call(Map data = [:]) {
   
-  def header = [
-    "type": "header",
-    "text": [
-      "type": "plain_text",
-      "text": ":construction: ${data.message}",
-      "emoji": true
-    ]
-  ]
+  def header = buildHeader(data.message)
 
   def msg = [header]
 
   echo "${msg}"
   
   return msg
+}
+
+def buildHeader(String msg){
+  return [
+    "type": "header",
+    "text": [
+      "type": "plain_text",
+      "text": ":construction: ${msg}",
+      "emoji": true
+    ]
+  ]
 }
