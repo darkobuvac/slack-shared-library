@@ -20,6 +20,8 @@ def call(Map data = [:]) {
 
   def commitsTitle = utils.buildSectionTitle("Commits")
 
+  utils.showCommit()
+
   def msg = [
     header,
     divider,
