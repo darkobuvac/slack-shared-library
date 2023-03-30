@@ -5,29 +5,29 @@ def call(Map data = [:]) {
   def timestamp = new Date().format("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", TimeZone.getTimeZone("UTC"))
   
   def slackMessage = [
-    type: "section",
-    text: [
-      type: "mrkdwn",
-      text: "*${data.pipelineName}* pipeline build *#${data.buildNumber}* has started at ${timestamp}"
+    "\"type\"": "\"section\"",
+    "\"text\"": [
+      "\"type\"": "\"mrkdwn\"",
+      "\"text\"": "\"*${data.pipelineName}* pipeline build *#${data.buildNumber}* has started at ${timestamp}\""
     ]
   ]
 
   def divider = [
-    type: "divider"
+    "\"type\"": "\"divider\""
   ]
   
   def fields = [
     [
-      type: "mrkdwn",
-      text: "*Build Name:*\n${data.buildName}"
+      "\"type\"": "\"mrkdwn\"",
+      "\"text\"": "\"*Build Name:*\n${data.buildName}\""
     ],
     [
-      type: "mrkdwn",
-      text: "*Started By:*\n${data.startedBy}"
+      "\"type\"": "\"mrkdwn\"",
+      "\"text\"": "\"*Started By:*\n${data.startedBy}\""
     ],
     [
-      type: "mrkdwn",
-      text: "*Build Status:*\n${data.buildStatus}"
+      "\"type\"": "\"mrkdwn\"",
+      "\"text\"": "\"*Build Status:*\n${data.buildStatus}\""
     ]
   ]
   
