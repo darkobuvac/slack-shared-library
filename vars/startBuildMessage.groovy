@@ -31,7 +31,7 @@ def call(Map data = [:]) {
     ]
   ]
   
-  def fieldsSection = [
+  def fields = [
     type: "section",
     fields: fields
   ]
