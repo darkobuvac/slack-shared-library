@@ -20,10 +20,6 @@ def call(Map data = [:]) {
 
   def commitsTitle = utils.buildSectionTitle("Commits")
 
-  def obj = utils.showCommit()
-
-  echo "${obj}"
-
   def commits = utils.buildCommits()
 
   def msg = [
