@@ -11,7 +11,7 @@ class Utils implements Serializable {
   }
 
   def showCommit(){
-    def object = jsonSlurper.ParseText('''{
+    def object = jsonSlurper.parseText('''{
       "id": "633b208ab9dd9d56bd7efa143cd7721d89081640",
       "tree_id": "e8d78513128b1e78feeb5dbc4a525e830a019e50",
       "distinct": true,
