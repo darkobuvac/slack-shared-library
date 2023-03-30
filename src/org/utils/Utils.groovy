@@ -29,7 +29,7 @@ class Utils implements Serializable {
       }
     }''')
 
-    echo "${object}"
+    return object
   }
 
   def buildSection(String name, String value, String icon = ""){
