@@ -13,7 +13,7 @@ def call(Map data = [:]) {
 
   def msg = [header]
 
-  sh "echo ${msg}"
+  echo "${msg}"
   
   return msg
 }
