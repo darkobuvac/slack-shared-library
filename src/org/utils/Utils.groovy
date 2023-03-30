@@ -1,3 +1,5 @@
+package org.utils
+
 class Utils implements Serializable {
 
   Utils() {}
