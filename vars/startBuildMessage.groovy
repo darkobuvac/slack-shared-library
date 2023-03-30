@@ -23,10 +23,6 @@ def call(Map data = [:]) {
     ],
     [
       type: "mrkdwn",
-      text: "*Build Number:*\n${data.buildNumber}"
-    ],
-    [
-      type: "mrkdwn",
       text: "*Started By:*\n${data.startedBy}"
     ],
     [
