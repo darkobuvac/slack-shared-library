@@ -14,11 +14,11 @@ class Utils implements Serializable {
 
   def buildHeader(String msg){
     return [
-      "type": "header",
-      "text": [
-        "type": "plain_text",
-        "text": ":construction: ${msg}",
-        "emoji": true
+      "\"type\"": "\"header\"",
+      "\"text\"": [
+        "\"type\"": "\"plain_text\"",
+        "\"text\"": "\":construction: ${msg}\"",
+        "\"emoji\"": true
       ]
     ]
   }
