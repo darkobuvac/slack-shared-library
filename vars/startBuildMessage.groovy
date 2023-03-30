@@ -5,28 +5,17 @@ def call(Map data = [:]) {
 
   def utils = new Utils()
   
-  def header = buildHeader(data.message)
-  def divider = buildDivider()
-  def project = utils.buildSection("Project", data.name)
+  def header = utils.buildHeader(data.message)
 
-  def msg = [header,divider,project]
+  def divider = utils.buildDivider()
+
+  def project = utils.buildSection("Project", data.name, "rocket")
+  def gitBranch = utils.buildSection("Git Branch", data.branch, "git")
+
+  def msg = [header,divider,project, gitBranch]
 
   echo "${msg}"
   
   return msg
 }
 
-def buildHeader(String msg){
-  return [
-    "type": "header",
-    "text": [
-      "type": "plain_text",
-      "text": ":construction: ${msg}",
-      "emoji": true
-    ]
-  ]
-}
-
-def buildDivider(){
-  return [type: "divider"]
-}

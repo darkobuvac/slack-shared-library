@@ -10,45 +10,48 @@
         }
       },
       {
+        "type": "divider"
+      },
+      {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": "*Project:* My Project Name"
+          "text": ":rocket: *Project:* My Project Name"
         }
       },
       {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": "*Git Branch:* main"
+          "text": ":git: *Git Branch:* main"
         }
       },
       {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": "*Started At:* 2023-03-30 12:30 PM"
+          "text": ":calendar: *Started At:* 2023-03-30 12:30 PM"
         }
       },
       {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": "*Pipeline ID:* #12345"
+          "text": ":id: *Pipeline ID:* #12345"
         }
       },
       {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": "*Triggered By:* John Doe"
+          "text": ":bust_in_silhouette: *Triggered By:* John Doe"
         }
       },
       {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": "*Pipeline URL:* <https://jenkins.example.com/job/my-project-pipeline/|View Pipeline on Jenkins>"
+          "text": ":link: *Pipeline URL:* <https://jenkins.example.com/job/my-project-pipeline/|View Pipeline on Jenkins>"
         }
       },
       {
@@ -65,14 +68,14 @@
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": ":white_check_mark: <https://github.com/myusername/my-project/commit/sha256abcdef|sha256abcdef> by John Doe - Fix typo in README.md"
+          "text": ":hash: <https://github.com/myusername/my-project/commit/sha256abcdef|sha256abcdef> by John Doe - Fix typo in README.md"
         }
       },
       {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": ":white_check_mark: <https://github.com/myusername/my-project/commit/sha256ghijkl|sha256ghijkl> by Jane Smith - Add new feature to API"
+          "text": ":hash: <https://github.com/myusername/my-project/commit/sha256ghijkl|sha256ghijkl> by Jane Smith - Add new feature to API"
         }
       },
       {
