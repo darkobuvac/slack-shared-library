@@ -1,0 +1,198 @@
+[
+  {
+    "blocks": [
+      {
+        "type": "header",
+        "text": {
+          "type": "plain_text",
+          "text": ":construction: Jenkins Pipeline Started",
+          "emoji": true
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Project:* My Project Name"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Git Branch:* main"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Started At:* 2023-03-30 12:30 PM"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Pipeline ID:* #12345"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Triggered By:* John Doe"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Pipeline URL:* <https://jenkins.example.com/job/my-project-pipeline/|View Pipeline on Jenkins>"
+        }
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Commits:*"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": ":white_check_mark: <https://github.com/myusername/my-project/commit/sha256abcdef|sha256abcdef> by John Doe - Fix typo in README.md"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": ":white_check_mark: <https://github.com/myusername/my-project/commit/sha256ghijkl|sha256ghijkl> by Jane Smith - Add new feature to API"
+        }
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Pipeline Stages:*"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": ":arrow_forward: *Build:* In Progress"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": ":stopwatch: *Test:* Waiting"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": ":white_check_mark: *Deploy:* Complete"
+        }
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": ":rocket: *New Jenkins Build Triggered*"
+        }
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Project:*\n:file_folder: My Awesome Project"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Branch:*\n:seedling: master"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Status:*\n:hourglass_flowing_sand: In Progress"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Started By:*\n:bust_in_silhouette: John Doe"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Started At:*\n:calendar: 2022-03-29 10:00 AM EST"
+          }
+        ]
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Commit:*\n<https://github.com/my-awesome-project/commit/52d20fb16|:link: 52d20fb16>"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Author:*\n:bust_in_silhouette: Jane Doe"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Message:*\n:pencil: Fix typo in README"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Commit:*\n<https://github.com/my-awesome-project/commit/1e45f8d7c|:link: 1e45f8d7c>"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Author:*\n:bust_in_silhouette: John Doe"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Message:*\n:pencil: Add new feature"
+          }
+        ]
+      },
+      {
+        "type": "context",
+        "elements": [
+          {
+            "type": "mrkdwn",
+            "text": ":link: <https://jenkins.mycompany.com/job/my-awesome-project/|View Jenkins Pipeline>"
+          }
+        ]
+      }
+    ]
+  }
+]
