@@ -100,19 +100,19 @@ class Utils implements Serializable {
       fields: [
           [
               type: "\"mrkdwn\"",
-              text: "*Commit ID:*\n<${commitUrl}|:link: {commitId}>"
+              text: "\"*Commit ID:*\n<${commitUrl}|:link: ${commitId}>\""
           ],
           [
               type: "\"mrkdwn\"",
-              text: "\"*Author:*\n:bust_in_silhouette: ${name} (${username})\n\n\""
+              text: "\"*Author:*\n:bust_in_silhouette: ${name} (${username})\""
           ],
           [
               type: "\"mrkdwn\"",
-              text: "\"*Message:*\n:pencil: ${commitMessage}\n\n\""
+              text: "\"*Message:*\n:pencil: ${commitMessage}\""
           ],
           [
               type: "\"mrkdwn\"",
-              text: "\"*Time:*\n:calendar: ${commitTime}\n\n\""
+              text: "\"*Time:*\n:calendar: ${commitTime}\""
           ]
       ]
     ]
