@@ -24,6 +24,8 @@ def call(Map data = [:]) {
 
   echo "${obj}"
 
+  def commits = utils.buildCommits()
+
   def msg = [
     header,
     divider,
@@ -34,7 +36,8 @@ def call(Map data = [:]) {
     triggeredBy,
     pipelineUrl,
     divider,
-    commitsTitle
+    commitsTitle,
+    commits
   ]
 
   echo "${msg}"
