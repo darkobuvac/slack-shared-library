@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-import org.utils
+import org.utils.*
 
 def call(Map data = [:]) {
 
