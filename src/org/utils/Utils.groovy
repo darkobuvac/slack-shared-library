@@ -4,7 +4,7 @@ class Utils implements Serializable {
 
   Utils() {}
 
-  def buildSection(String name, String value, String icon){
+  def buildSection(String name, String value, String icon = ""){
     return [type: "\"section\"", text: [type: "\"mrkdwn\"", text: "\":${icon}: *${name}:* ${value}\""]]
   }
 
