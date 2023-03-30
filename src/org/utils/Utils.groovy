@@ -128,5 +128,7 @@ class Utils implements Serializable {
 
       result << commitSection
     }
+
+    return result
   }
 }
