@@ -32,8 +32,6 @@ def call(Map data = [:]) {
   ]
   
   def slackBlocks = [slackMessage, divider,  fields, divider]
-
-  sh "echo ${slackBlocks} ${data}" 
   
   return slackBlocks
 }
