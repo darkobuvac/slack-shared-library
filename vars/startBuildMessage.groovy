@@ -8,7 +8,7 @@ def call(Map data = [:]) {
     type: "section",
     text: [
       type: "mrkdwn",
-      text: "*${data.pipelineName}* pipeline build *#${buildNumber}* has started at ${timestamp}"
+      text: "*${data.pipelineName}* pipeline build *#${data.buildNumber}* has started at ${timestamp}"
     ]
   ]
 
@@ -36,7 +36,7 @@ def call(Map data = [:]) {
     fields: fields
   ]
   
-  def slackBlocks = [slackMessage, divider,  fieldsSection, divider]
+  def slackBlocks = [slackMessage, divider,  fields, divider]
   
   return slackBlocks
 }
