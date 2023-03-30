@@ -19,7 +19,6 @@ def call(Map data = [:]) {
   def pipelineUrl = utils.buildSection("Pipeline URL", "<${data.pipelineUrl}|View pipeline on Jenkins>", "link")
 
   def commitsTitle = utils.buildSectionTitle("Commits")
-  dev commit = utils.buildCommitSection();
 
   def msg = [
     header,
