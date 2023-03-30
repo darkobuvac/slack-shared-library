@@ -31,11 +31,6 @@ def call(Map data = [:]) {
     ]
   ]
   
-  def fields = [
-    type: "section",
-    fields: fields
-  ]
-  
   def slackBlocks = [slackMessage, divider,  fields, divider]
   
   return slackBlocks
