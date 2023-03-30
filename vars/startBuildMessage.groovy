@@ -3,6 +3,8 @@ import org.utils.*
 
 def call(Map data = [:]) {
 
+  def timestamp = new Date().format("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", TimeZone.getTimeZone("UTC"))
+
   def utils = new Utils()
   
   def header = utils.buildHeader(data.message)
@@ -11,8 +13,22 @@ def call(Map data = [:]) {
 
   def project = utils.buildSection("Project", data.name, "rocket")
   def gitBranch = utils.buildSection("Git Branch", data.branch, "git")
+  def time = utils.buildSection("Started at", timestamp, "calendar")
+  def pipelineId = utils.buildSection("PipelinaId", data.pipelineId, "id")
+  def triggeredBy = utils.buildSection("Triggered By", data.jenkinsUser, "bust_in_silhouette")
+  def pipelineUrl = utils.buildSection("Pipeline URL", "<${data.pipelineUrl}|View pipeline on Jenkins>", "link")
 
-  def msg = [header,divider,project, gitBranch]
+  def msg = [
+    header,
+    divider,
+    project, 
+    gitBranch,
+    time,
+    pipelineId,
+    triggeredBy,
+    pipelineUrl,
+    divider
+  ]
 
   echo "${msg}"
   
