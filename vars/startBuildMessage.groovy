@@ -18,7 +18,8 @@ def call(Map data = [:]) {
   def triggeredBy = utils.buildSection("Triggered By", data.jenkinsUser, "bust_in_silhouette")
   def pipelineUrl = utils.buildSection("Pipeline URL", "<${data.pipelineUrl}|View pipeline on Jenkins>", "link")
 
-  def commitsTitle = utils.buildSection("Commits", "", "");
+  def commitsTitle = utils.buildSectionTitle("Commits")
+  dev commit = utils.buildCommitSection();
 
   def msg = [
     header,
@@ -30,7 +31,8 @@ def call(Map data = [:]) {
     triggeredBy,
     pipelineUrl,
     divider,
-    commitsTitle
+    commitsTitle,
+    commit
   ]
 
   echo "${msg}"
