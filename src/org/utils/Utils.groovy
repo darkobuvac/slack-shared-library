@@ -11,7 +11,23 @@ class Utils implements Serializable {
   }
 
   def showCommit(){
-    def object = jsonSlurper.ParseText('{"id": "633b208ab9dd9d56bd7efa143cd7721d89081640"}')
+    def object = jsonSlurper.ParseText('''{
+      "id": "633b208ab9dd9d56bd7efa143cd7721d89081640",
+      "tree_id": "e8d78513128b1e78feeb5dbc4a525e830a019e50",
+      "distinct": true,
+      "message": "cascade on delete",
+      "timestamp": "2023-03-30T11:44:55+02:00",
+      "author": {
+        "name": "Ognjen Katić",
+        "email": "44910579+ognjenkatic@users.noreply.github.com",
+        "username": "ognjenkatic"
+      },
+      "committer": {
+        "name": "Ognjen Katić",
+        "email": "44910579+ognjenkatic@users.noreply.github.com",
+        "username": "ognjenkatic"
+      }
+    }''')
 
     echo "${object}"
   }
