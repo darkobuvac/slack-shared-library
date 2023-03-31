@@ -96,23 +96,30 @@ def buildSection(String name, String value, String icon = ""){
 
   def buildCommitSection(String name, String username, String commitId, String commitUrl, String commitMessage, String commitTime){
     return [
-      type: "section",
-      fields: [
-          [
-              type: "mrkdwn",
-              text: "*Commit ID:*\n<${commitUrl}|:link: ${commitId}>"
-          ],
-          [
-              type: "mrkdwn",
-              text: "*Author:*\n:bust_in_silhouette: ${name} (${username})"
-          ],
-          [
-              type: "mrkdwn",
-              text: "*Message:*\n:pencil: ${commitMessage}"
-          ],
-          [
-              type: "mrkdwn",
-              text: "*Time:*\n:calendar: ${commitTime}"
+      [
+        type: "section",
+        fields: [
+            [
+                type: "mrkdwn",
+                text: "*Commit ID:*\n<${commitUrl}|:link: ${commitId}>"
+            ],
+            [
+                type: "mrkdwn",
+                text: "*Author:*\n:bust_in_silhouette: ${name} (${username})"
+            ]
+        ]
+      ],
+      [
+        type: "section",
+          fields: [
+              [
+                  type: "mrkdwn",
+                  text: "*Message:*\n:pencil: ${commitMessage}"
+              ],
+              [
+                  type: "mrkdwn",
+                  text: "*Time:*\n:calendar: ${commitTime}"
+              ]
           ]
       ]
     ]
@@ -128,7 +135,7 @@ def buildSection(String name, String value, String icon = ""){
     for (commit in commits){
       def commitSection = buildCommitSection(commit.author.name, commit.author.username, commit.id, commit.url, commit.message, commit.timestamp)
 
-      result << commitSection
+      result << *commitSection
       result << divider
     }
 
