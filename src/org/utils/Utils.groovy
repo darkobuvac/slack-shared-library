@@ -134,9 +134,4 @@ class Utils implements Serializable {
 
     return result
   }
-
-  def formatDate(String date){
-    Date date = Date.fromString("2023-03-30T11:44:55+02:00")
-    return date.format("YYYY-MM-dd HH:mm:ss", TimeZone.getTimeZone("UTC"))
-  }
 }
