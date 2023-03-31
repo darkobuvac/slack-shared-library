@@ -33,7 +33,7 @@ def call(Map data = [:]) {
     pipelineUrl,
     divider,
     commitsTitle,
-    commits
+    *commits
   ]
 
   echo "${msg}"
