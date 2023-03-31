@@ -145,8 +145,8 @@ class Utils implements Serializable {
     for (commit in commits){
       def commitSection = buildCommitSection(commit.author.name, commit.author.username, commit.id, commit.url, commit.message, commit.timestamp)
 
-      result.add(*commitSection)
-      result.add(divider)
+      result << commitSection
+      result << divider
     }
 
     return result
