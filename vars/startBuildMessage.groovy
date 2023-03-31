@@ -3,7 +3,7 @@ import org.utils.*
 
 def call(Map data = [:]) {
 
-  def timestamp = new Date().format("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", TimeZone.getTimeZone("UTC"))
+  def timestamp = new Date().format("YYYY-MM-dd HH:mm:ss", TimeZone.getTimeZone("UTC"))
 
   def utils = new Utils()
   
