@@ -14,7 +14,7 @@ def call(Map data = [:]) {
   def project = utils.buildSection("Project", data.name, "rocket")
   def gitBranch = utils.buildSection("Git Branch", data.branch, "git")
   def time = utils.buildSection("Started at", timestamp, "calendar")
-  def pipelineId = utils.buildSection("PipelinaId", data.pipelineId, "id")
+  def pipelineId = utils.buildSection("Pipeline Id", data.pipelineId, "id")
   def triggeredBy = utils.buildSection("Triggered By", data.jenkinsUser, "bust_in_silhouette")
   def pipelineUrl = utils.buildSection("Pipeline URL", "<${data.pipelineUrl}|View pipeline on Jenkins>", "link")
 

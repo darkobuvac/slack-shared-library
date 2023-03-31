@@ -199,3 +199,30 @@
     ]
   }
 ]
+
+stage('Clonning git') {
+  steps {
+      git branch: 'main', credentialsId: 'github-token', url: 'https://github.com/codaxy/cxo-customer-management'
+  }
+}
+stage('Build docker image'){
+  steps{
+      sh 'docker build -t ghcr.io/codaxy/cxo-customer-management:latest -f ./src/CustomerManagement.Api/Dockerfile .'
+  }
+}
+stage('Upload docker image'){
+  steps{
+      withCredentials([usernamePassword(credentialsId: 'github-token', passwordVariable: 'password', usernameVariable: 'username')]) {
+          sh "echo $password | docker login ghcr.io -u $username --password-stdin"
+      }
+      
+      sh 'docker push ghcr.io/codaxy/cxo-customer-management:latest'
+  }
+}
+
+stage('Rebuild CxO stack'){
+  steps{
+      sh 'ssh buildagent@192.168.101.17 -i ~/.ssh/id_rsa \"cd /home/buildagent/cxo-composer/ && docker image pull ghcr.io/codaxy/cxo-customer-management:latest\"'
+      sh 'ssh buildagent@192.168.101.17 -i ~/.ssh/id_rsa \"cd /home/buildagent/cxo-composer/ && docker compose -f docker-compose.yml up customermanagement -d \"'
+  }
+}
