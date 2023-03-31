@@ -72,7 +72,14 @@ class Utils implements Serializable {
   }
 
   def buildSection(String name, String value, String icon = ""){
-    return [type: "section", text: [type: "mrkdwn", text: ":${icon}: *${name}:* ${value}"]]
+    return [
+      type: "section", 
+      text: 
+      [
+        type: "mrkdwn", 
+        text: ":${icon}: *${name}:* ${value}"
+      ]
+    ]
   }
 
   def buildSectionTitle(String name){
@@ -83,12 +90,12 @@ class Utils implements Serializable {
     return [type: "divider"]
   }
 
-  def buildHeader(String msg){
+  def buildHeader(String msg, String icon){
     return [
       type: "header",
       text: [
         type: "plain_text",
-        text: ":construction: ${msg}",
+        text: ":${icon}: ${msg}",
         emoji: true
       ]
     ]
@@ -96,24 +103,34 @@ class Utils implements Serializable {
 
   def buildCommitSection(String name, String username, String commitId, String commitUrl, String commitMessage, String commitTime){
     return [
-      type: "section",
-      fields: [
-          [
-              type: "mrkdwn",
-              text: "*Commit ID:* <${commitUrl}|:link: ${commitId}>"
-          ],
-          [
-              type: "mrkdwn",
-              text: "*Author:* :bust_in_silhouette: ${name} (${username})"
-          ],
-          [
-              type: "mrkdwn",
-              text: "*Message:* :pencil: ${commitMessage}"
-          ],
-          [
-              type: "mrkdwn",
-              text: "*Time:* :calendar: ${commitTime}"
-          ]
+      [
+        type: "section", 
+        text: 
+        [
+          type: "mrkdwn", 
+          text: "*Commit ID:* <${commitUrl}|:link: ${commitId}>"
+        ]
+      ],
+      [
+        type: "section", 
+        text: 
+        [
+          type: "mrkdwn", 
+          text: "*Message:* :pencil: ${commitMessage}"
+        ]
+      ],
+      [
+        type: "section",
+        fields: [
+            [
+                type: "mrkdwn",
+                text: "*Author:* :bust_in_silhouette: ${name} (${username})"
+            ],
+            [
+                type: "mrkdwn",
+                text: "*Time:* :calendar: ${commitTime}"
+            ]
+        ]
       ]
     ]
   }
@@ -128,8 +145,8 @@ class Utils implements Serializable {
     for (commit in commits){
       def commitSection = buildCommitSection(commit.author.name, commit.author.username, commit.id, commit.url, commit.message, commit.timestamp)
 
-      result << commitSection
-      result << divider
+      result.add(*commitSection)
+      result.add(divider)
     }
 
     return result
