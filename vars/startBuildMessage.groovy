@@ -32,7 +32,8 @@ def call(Map data = [:]) {
     triggeredBy,
     pipelineUrl,
     divider,
-    commitsTitle
+    commitsTitle,
+    *commits
   ]
 
   echo "${msg}"
