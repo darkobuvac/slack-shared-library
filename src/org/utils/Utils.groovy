@@ -108,7 +108,7 @@ class Utils implements Serializable {
         text: 
         [
           type: "mrkdwn", 
-          text: ":link: *Commit ID:* <${commitUrl}|${commitId}>"
+          text: ":hash: *Commit ID:* <${commitUrl}|${commitId}>"
         ]
       ],
       [
