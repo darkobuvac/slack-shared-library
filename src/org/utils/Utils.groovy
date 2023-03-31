@@ -71,7 +71,7 @@ class Utils implements Serializable {
     return object
   }
 
-def buildSection(String name, String value, String icon = ""){
+  def buildSection(String name, String value, String icon = ""){
     return [type: "section", text: [type: "mrkdwn", text: ":${icon}: *${name}:* ${value}"]]
   }
 
@@ -133,5 +133,10 @@ def buildSection(String name, String value, String icon = ""){
     }
 
     return result
+  }
+
+  def formatDate(String date){
+    Date date = Date.fromString("2023-03-30T11:44:55+02:00")
+    return date.format("YYYY-MM-dd HH:mm:ss", TimeZone.getTimeZone("UTC"))
   }
 }
