@@ -108,7 +108,7 @@ class Utils implements Serializable {
         text: 
         [
           type: "mrkdwn", 
-          text: "*Commit ID:* <${commitUrl}|:link: ${commitId}>"
+          text: ":link: *Commit ID:* <${commitUrl}|${commitId}>"
         ]
       ],
       [
@@ -116,7 +116,7 @@ class Utils implements Serializable {
         text: 
         [
           type: "mrkdwn", 
-          text: "*Message:* :pencil: ${commitMessage}"
+          text: ":pencil: *Message:* ${commitMessage}"
         ]
       ],
       [
@@ -124,11 +124,11 @@ class Utils implements Serializable {
         fields: [
             [
                 type: "mrkdwn",
-                text: "*Author:* :bust_in_silhouette: ${name} (${username})"
+                text: ":bust_in_silhouette: *Author:* ${name} (${username})"
             ],
             [
                 type: "mrkdwn",
-                text: "*Time:* :calendar: ${commitTime}"
+                text: ":calendar: *Time:* ${commitTime}"
             ]
         ]
       ]
