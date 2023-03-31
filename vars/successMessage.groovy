@@ -2,6 +2,9 @@
 import org.utils.*
 
 def call(Map data = [:]){
+  
+  def timestamp = new Date().format("YYYY-MM-dd HH:mm:ss", TimeZone.getTimeZone("UTC"))
+
   def utils = new Utils()
 
   def header = utils.buildHeader(data.message, "white_check_mark")
