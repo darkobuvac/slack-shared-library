@@ -1,6 +1,6 @@
 import org.components.Divider
 
-Divider call() {
+Map call() {
   Divider divider = new Divider()
 
   Map slackBlock = divider.toSlackElement()
@@ -9,5 +9,5 @@ Divider call() {
 
   echo "${divider}"
 
-  return divider
+  return slackBlock
 }

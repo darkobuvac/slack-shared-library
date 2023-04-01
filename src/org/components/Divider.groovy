@@ -1,13 +1,13 @@
 package org.components
 
-import groovy.transform.CompileStatic
+import groovy.transform.CompileDynamic
 
 import org.commons.Types
 
 /**
  * Divider element
  */
-@CompileStatic
+@CompileDynamic
 class Divider extends  BaseElement {
 
   Divider() {
