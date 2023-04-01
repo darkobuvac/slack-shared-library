@@ -14,13 +14,6 @@ class SectionField extends  BaseElement {
   List<Map> data
   List<Map> fields = []
 
-  SectionField(List<Map> data) {
-    super(Types.SECTION)
-    this.data = data
-
-    this.populateFields()
-  }
-
   void populateFields() {
     for (item in data) {
       String value = StringUtils.isBlank(item.icon) ? "${item.value}" : ":${item.icon}: ${item.value}"
@@ -28,6 +21,13 @@ class SectionField extends  BaseElement {
 
       this.fields.add(textEl.toSlackElement())
     }
+  }
+
+  SectionField(List<Map> data) {
+    super(Types.SECTION)
+    this.data = data
+
+    this.populateFields()
   }
 
   Map toSlackElement() {
