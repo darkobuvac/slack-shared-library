@@ -20,7 +20,7 @@ class Header extends  BaseElement {
       super(type: Types.HEADER)
     this.title = title
     this.showIcon = StringUtils.isBlank(icon)
-    this.text = new Text(Types.PLAIN_TEXT, genearteTitle())
+    this.text = new Text(Types.PLAIN_TEXT, this.genearteTitle())
   }
 
   String genearteTitle() {
