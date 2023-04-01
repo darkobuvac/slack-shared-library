@@ -27,7 +27,7 @@ class SectionField extends  BaseElement {
     super(Types.SECTION)
     this.data = data
 
-    this.populateFields()
+    populateFields()
   }
 
   Map toSlackElement() {
