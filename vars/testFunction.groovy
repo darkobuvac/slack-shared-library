@@ -1,9 +1,9 @@
 import org.components.Divider
 
-Divider call() {
-  Divider divider = new Divider()
+def call() {
+  def divider = new Divider()
 
-  echo "${divider.inspect()}"
+  echo "${divider}"
 
   return divider
 }
