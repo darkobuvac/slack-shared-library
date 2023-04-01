@@ -25,11 +25,11 @@ class StartBuildMessage {
   }
 
   Map toSlackBlock() {
-    Map result = [
-      header.toSlackElement(),
-      infoMsg.toSlackElement(),
-      divider.toSlackElement()
-    ]
+    Map result = []
+
+    result << this.header.toSlackElement()
+    result << this.infoMsg.toSlackElement()
+    result << this.divider.toSlackElement()
 
     return result
   }
