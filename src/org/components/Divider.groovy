@@ -14,8 +14,8 @@ class Divider extends  BaseElement {
     super(Types.DIVIDER)
   }
 
-  // Map toSlackElement() {
-  //   return [type: "${this.type}"]
-  // }
+  Map toSlackElement() {
+    return [type: "${this.type}"]
+  }
 
 }
