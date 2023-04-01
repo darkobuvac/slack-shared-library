@@ -35,7 +35,7 @@ class SectionText extends  BaseElement {
     ]
   }
 
-  private String generateTitle() {
+  String generateTitle() {
     String title = this.isBold ? "*${this.text}*" : "${this.text}"
     return this.showIcon ? ":${this.icon}: ${title}" : "${title}"
   }
