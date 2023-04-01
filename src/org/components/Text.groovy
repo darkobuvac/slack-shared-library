@@ -10,13 +10,13 @@ import org.commons.Types
 @CompileDynamic
 class Text extends  BaseElement {
 
-  String text
+  String value
   String type
   boolean emoji
 
-  Text(String type, String text, boolean emoji = true) {
+  Text(String type, String value, boolean emoji = true) {
       super(type)
-    this.text = text
+    this.value = value
     this.type = type
     this.emoji = emoji
   }
@@ -24,7 +24,7 @@ class Text extends  BaseElement {
   Map toSlackElement() {
     Map result = [
       type: this.type,
-      text: this.text,
+      value: this.value,
 
     ]
 

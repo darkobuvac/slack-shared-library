@@ -2,7 +2,7 @@ import org.components.SectionText
 import org.commons.Types
 
 Map call() {
-  SectionText section = new SectionText('Test', 'rocket', Types.PLAIN_TEXT)
+  SectionText section = new SectionText('*Project*: CxO Customer Management', 'rocket', Types.MARK_DOWN)
 
   Map slackBlock = section.toSlackElement()
 

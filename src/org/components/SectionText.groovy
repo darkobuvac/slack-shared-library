@@ -11,23 +11,21 @@ import org.commons.Types
 @CompileDynamic
 class SectionText extends  BaseElement {
 
-  String text
+  String value
   String textElementType
   Text textElement
   boolean showIcon
   String icon
   boolean isBold
 
-  SectionText(String text, String icon, String textElementType, boolean isBold = true) {
+  SectionText(String value, String icon, String textElementType, boolean isBold = true) {
       super(Types.SECTION)
-    this.showIcon = StringUtils.isBlank(icon)
-    this.text = text
+    this.showIcon = !StringUtils.isBlank(icon)
+    this.value = value
     this.icon = icon
     this.textElementType = textElementType
     this.isBold = isBold
-
-    String title = this.isBold ? "*${text}*" : "${text}"
-    this.textElement = new Text(this.textElementType, this.showIcon ? "${title}" : ":${this.icon}: ${title}")
+    this.textElement = new Text(Types.PLAIN_TEXT, this.showIcon ? ":${this.icon}: ${this.value}" : "${this.value}")
   }
 
   Map toSlackElement() {
