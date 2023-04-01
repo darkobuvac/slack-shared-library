@@ -17,6 +17,8 @@ class SectionField extends  BaseElement {
   SectionField(List<Map> data) {
     super(Types.SECTION)
     this.data = data
+
+    this.populateFields()
   }
 
   void populateFields() {
