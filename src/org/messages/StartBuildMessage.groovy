@@ -18,9 +18,6 @@ class StartBuildMessage {
   SectionText infoMsg
   Divider divider
 
-  StartBuildMessage() {
-  }
-
   StartBuildMessage(Map data = [:]) {
     this.header = new Header('Pipeline started', 'construction')
     this.infoMsg = new SectionText("${data.projct} build & deploy pipeline has been launched", '', Types.PLAIN_TEXT)
