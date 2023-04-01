@@ -15,14 +15,12 @@ class SectionText extends  BaseElement {
   String textElementType
   Text textElement
   String icon
-  boolean isBold
 
-  SectionText(String value, String icon, String textElementType, boolean isBold = true) {
+  SectionText(String value, String icon, String textElementType) {
       super(Types.SECTION)
     this.value = value
     this.icon = icon
     this.textElementType = textElementType
-    this.isBold = isBold
 
     String title = StringUtils.isBlank(icon) ? "${this.value}" : ":${this.icon}: ${this.value}"
     this.textElement = new Text(this.textElementType, title)
