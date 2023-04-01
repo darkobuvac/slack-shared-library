@@ -9,7 +9,7 @@ Map call() {
   Map slackBlock = section.toSlackElement()
 
   echo "${slackBlock}"
-  echo "${header}"
+  echo "${header.toSlackElement()}"
 
   return slackBlock
 }
