@@ -24,8 +24,8 @@ class StartBuildMessage {
     this.divider = new Divider()
   }
 
-  def toSlackBlock() {
-    def result = [
+  List<Object> toSlackBlock() {
+    List<Object> result = [
      this.header.toSlackElement(),
      this.infoMsg.toSlackElement(),
      this.divider.toSlackElement()
