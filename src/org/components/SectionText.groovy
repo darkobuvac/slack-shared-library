@@ -18,13 +18,13 @@ class SectionText extends  BaseElement {
   String icon
   boolean isBold
 
-  SectionText(Map data = [:]) {
+  SectionText(String text, String icon, String textElementType, boolean isBold = true) {
       super(Types.SECTION)
-    this.showIcon = StringUtils.isBlank(data.icon)
-    this.text = data.text
-    this.icon = data.icon
-    this.textElementType = data.textElementType
-    this.isBold = data.isBold
+    this.showIcon = StringUtils.isBlank(icon)
+    this.text = text
+    this.icon = icon
+    this.textElementType = textElementType
+    this.isBold = isBold
     this.textElement = new Text(this.textElementType, genearteTitle())
   }
 
