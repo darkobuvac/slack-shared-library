@@ -14,8 +14,7 @@ class Divider extends  BaseElement {
     super(Types.DIVIDER)
   }
 
-  @Override
-  String toSlackElement() {
+  Map toSlackElement() {
     return [type: "${this.type}"]
   }
 
