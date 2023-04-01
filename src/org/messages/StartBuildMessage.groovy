@@ -8,6 +8,7 @@ import org.components.Header
 import org.components.Divider
 import org.components.SectionText
 import org.components.SectionField
+import org.components.BaseElement
 
 /**
  * Text element (shared element in all slack block elements)
@@ -15,25 +16,21 @@ import org.components.SectionField
 @CompileDynamic
 class StartBuildMessage {
 
+  List<Map> buildData = []
+  List<Map> commitsData = []
+
   Header header
   SectionText infoMsg
   Divider divider
-  SectionField firstSection
 
-  StartBuildMessage(Map data = [:]) {
-    this.header = new Header('data.message', 'construction')
-    this.infoMsg = new SectionText("${data.projct} build & deploy pipeline has been launched", '', Types.PLAIN_TEXT)
-    this.divider = new Divider()
-    this.firstSection = new SectionField([
-      [
-        value: '*Project*: CxO Customer management',
-        icon: 'rocket'
-      ],
-      [
-        value: '*Started at*: 2023-03-30 12:30 PM',
-        icon: 'date'
-      ]
-    ])
+  List<BaseElement> buildElemenets
+
+  Header commitsHeader
+  List<Commit> commits = []
+
+  StartBuildMessage(List<Map> commitsData, List<Map> buildData) {
+    this.buildData = buildData
+    this.commitsData = commitsData
   }
 
   List<Object> toSlackBlock() {
