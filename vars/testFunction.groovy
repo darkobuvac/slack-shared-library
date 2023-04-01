@@ -7,7 +7,5 @@ Map call() {
 
   echo "${slackBlock}"
 
-  echo "${divider}"
-
   return slackBlock
 }
