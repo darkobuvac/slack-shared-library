@@ -25,7 +25,6 @@ class SectionText extends  BaseElement {
     this.icon = data.icon
     this.textElementType = data.textElementType
     this.isBold = data.isBold
-    this.tile = this.showIcon ? ":${this.icon}: ${this.text}" : "${this.text}"
     this.textElement = new Text(this.textElementType, genearteTitle())
   }
 
