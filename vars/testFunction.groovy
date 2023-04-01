@@ -1,7 +1,7 @@
 import org.components.Divider
 
-def call() {
-  def divider = new Divider()
+Divider call() {
+  Divider divider = new Divider()
 
   echo "${divider}"
 

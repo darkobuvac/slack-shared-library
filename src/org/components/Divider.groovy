@@ -11,7 +11,7 @@ import org.commons.Types
 class Divider extends  BaseElement {
 
   Divider() {
-    super(Types.DIVIDER)
+    super(type: Types.DIVIDER)
   }
 
 }
