@@ -24,12 +24,12 @@ class StartBuildMessage {
     this.divider = new Divider()
   }
 
-  Map toSlackBlock() {
-    Map result = [:]
-
-    result << this.header.toSlackElement()
-    result << this.infoMsg.toSlackElement()
-    result << this.divider.toSlackElement()
+  Array toSlackBlock() {
+    Arry result = [
+     this.header.toSlackElement(),
+     this.infoMsg.toSlackElement(),
+     this.divider.toSlackElement()
+    ]
 
     return result
   }
