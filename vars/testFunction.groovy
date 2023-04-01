@@ -6,5 +6,5 @@ Map call() {
 
   echo "${startMessage.toSlackBlock()}"
 
-  return slackBlock
+  return startMessage
 }
