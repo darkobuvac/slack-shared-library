@@ -26,9 +26,9 @@ class StartBuildMessage {
 
   Map toSlackBlock() {
     Map result = [
-      header,
-      infoMsg,
-      divider
+      header.toSlackElement(),
+      infoMsg.toSlackElement(),
+      divider.toSlackElement()
     ]
 
     return result
