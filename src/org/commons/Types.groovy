@@ -1,5 +1,7 @@
 package org.commons
 
+import groovy.transform.CompileStatic
+
 /**
  * This class is intended for storing static values related to Slack block types.
  */

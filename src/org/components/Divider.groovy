@@ -1,5 +1,7 @@
 package org.components
 
+import groovy.transform.CompileStatic
+
 import org.commons.Types
 
 /**

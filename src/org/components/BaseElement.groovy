@@ -1,5 +1,7 @@
 package org.components
 
+import groovy.transform.CompileStatic
+
 /**
  * Base element class for slack block elements
  */
