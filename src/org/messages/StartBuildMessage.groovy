@@ -25,7 +25,7 @@ class StartBuildMessage {
   }
 
   Array toSlackBlock() {
-    Arry result = [
+    Array result = [
      this.header.toSlackElement(),
      this.infoMsg.toSlackElement(),
      this.divider.toSlackElement()
