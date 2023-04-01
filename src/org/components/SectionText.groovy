@@ -29,16 +29,16 @@ class SectionText extends  BaseElement {
     this.textElement = new Text(this.textElementType, genearteTitle())
   }
 
-  private String genearteTitle() {
-    String title = this.isBold ? "*${this.text}*" : "${this.text}"
-    return this.showIcon ? ":${this.icon}: ${title}" : "${title}"
-  }
-
   Map toSlackElement() {
     return [
       type: this.type,
       text: this.textElement.toSlackElement()
     ]
+  }
+
+  private String genearteTitle() {
+    String title = this.isBold ? "*${this.text}*" : "${this.text}"
+    return this.showIcon ? ":${this.icon}: ${title}" : "${title}"
   }
 
 }
