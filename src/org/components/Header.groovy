@@ -19,12 +19,8 @@ class Header extends  BaseElement {
   Header(String title, String icon) {
       super(type: Types.HEADER)
     this.title = title
-    this.showIcon = StringUtils.isBlank(icon)
-    this.text = new Text(Types.PLAIN_TEXT, this.genearteTitle())
-  }
-
-  String genearteTitle() {
-    return this.showIcon ? ":${this.icon}: ${this.title}" : "${this.title}"
+    this.showIcon = !StringUtils.isBlank(icon)
+    this.text = new Text(Types.PLAIN_TEXT, this.showIcon ? ":${this.icon}: ${this.title}" : "${this.title}")
   }
 
   Map toSlackElement() {
