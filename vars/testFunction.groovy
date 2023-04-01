@@ -1,9 +1,9 @@
-import org.components.Divider
+import org.components.SectionText
 
 Map call() {
-  Divider divider = new Divider()
+  SectionText section = new SectionText(text: 'Test', icon: 'rocket', textElementType: 'plain_text', isBold: true)
 
-  Map slackBlock = divider.toSlackElement()
+  Map slackBlock = section.toSlackElement()
 
   echo "${slackBlock}"
 
