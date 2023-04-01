@@ -25,7 +25,7 @@ class SectionText extends  BaseElement {
     this.icon = icon
     this.textElementType = textElementType
     this.isBold = isBold
-    this.textElement = new Text(Types.PLAIN_TEXT, this.showIcon ? ":${this.icon}: ${this.value}" : "${this.value}")
+    this.textElement = new Text(this.textElementType, this.showIcon ? ":${this.icon}: ${this.value}" : "${this.value}")
   }
 
   Map toSlackElement() {
