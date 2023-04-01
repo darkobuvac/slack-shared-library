@@ -5,7 +5,5 @@ Divider call() {
 
   Map output = divider.toSlackElement()
 
-  echo "${output}"
-
   return output
 }
