@@ -17,9 +17,10 @@ class Header extends  BaseElement {
   Text text
 
   Header(String title, String icon) {
-      super(type: Types.HEADER)
+      super(Types.HEADER)
     this.title = title
     this.showIcon = !StringUtils.isBlank(icon)
+    this.icon = icon
     this.text = new Text(Types.PLAIN_TEXT, this.showIcon ? ":${this.icon}: ${this.title}" : "${this.title}")
   }
 
