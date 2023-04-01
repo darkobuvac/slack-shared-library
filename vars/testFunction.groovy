@@ -3,7 +3,9 @@ import org.components.Divider
 Divider call() {
   Divider divider = new Divider()
 
-  echo "${divider.toSlackElement()}"
+  Map output = divider.toSlackElement()
 
-  return divider
+  echo "${output}"
+
+  return output
 }
