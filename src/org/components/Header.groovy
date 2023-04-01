@@ -12,16 +12,14 @@ import org.commons.Types
 class Header extends  BaseElement {
 
   String title
-  boolean showIcon
   String icon
   Text text
 
   Header(String title, String icon) {
       super(Types.HEADER)
     this.title = title
-    this.showIcon = !StringUtils.isBlank(icon)
     this.icon = icon
-    this.text = new Text(Types.PLAIN_TEXT, this.showIcon ? ":${this.icon}: ${this.title}" : "${this.title}")
+    this.text = new Text(Types.PLAIN_TEXT, StringUtils.isBlank(icon) ? "${this.title}" : ":${this.icon}: ${this.title}")
   }
 
   Map toSlackElement() {

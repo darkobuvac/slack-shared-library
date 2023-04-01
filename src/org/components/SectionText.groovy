@@ -14,18 +14,18 @@ class SectionText extends  BaseElement {
   String value
   String textElementType
   Text textElement
-  boolean showIcon
   String icon
   boolean isBold
 
   SectionText(String value, String icon, String textElementType, boolean isBold = true) {
       super(Types.SECTION)
-    this.showIcon = !StringUtils.isBlank(icon)
     this.value = value
     this.icon = icon
     this.textElementType = textElementType
     this.isBold = isBold
-    this.textElement = new Text(this.textElementType, this.showIcon ? ":${this.icon}: ${this.value}" : "${this.value}")
+
+    String title = StringUtils.isBlank(icon) ? "${this.value}" : ":${this.icon}: ${this.value}"
+    this.textElement = new Text(this.textElementType, title)
   }
 
   Map toSlackElement() {
