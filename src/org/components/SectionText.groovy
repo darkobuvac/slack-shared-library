@@ -25,7 +25,7 @@ class SectionText extends  BaseElement {
     this.icon = icon
     this.textElementType = textElementType
     this.isBold = isBold
-    this.textElement = new Text(this.textElementType, this.genearteTitle())
+    this.textElement = new Text(this.textElementType, this.generateTitle())
   }
 
   Map toSlackElement() {
@@ -35,7 +35,7 @@ class SectionText extends  BaseElement {
     ]
   }
 
-  private String genearteTitle() {
+  private String generateTitle() {
     String title = this.isBold ? "*${this.text}*" : "${this.text}"
     return this.showIcon ? ":${this.icon}: ${title}" : "${title}"
   }
