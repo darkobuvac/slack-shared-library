@@ -11,20 +11,28 @@ import org.commons.Types
 class Text extends  BaseElement {
 
   String text
+  String type
   boolean emoji
 
-  Text(String text, boolean emoji = true) {
-      super(Types.PLAIN_TEXT)
+  Text(String type, String text, boolean emoji = true) {
+      super(type)
     this.text = text
+    this.type = type
     this.emoji = emoji
   }
 
   Map toSlackElement() {
-    return [
+    Map result = [
       type: this.type,
       text: this.text,
-      emoji: this.emoji
+
     ]
+
+    if (this.type == Types.PLAIN_TEXT) {
+      result << [emoji: this.emoji]
+    }
+
+    return result
   }
 
 }
