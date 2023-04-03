@@ -76,7 +76,7 @@ class StartBuildMessage {
     for (item in this.commitsData) {
       Commit commit = new Commit(item)
 
-      this.commits.add(commit)
+      this.commits.add(*commit.toSlackElement())
       this.commits.add(this.divider.toSlackElement())
     }
   }
