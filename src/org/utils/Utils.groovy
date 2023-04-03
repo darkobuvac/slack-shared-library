@@ -10,7 +10,28 @@ class Utils implements Serializable {
     this.jsonSlurper = new JsonSlurper()
   }
 
-  def showCommit(){
+  List<Map> mapCommits(String commitData) {
+    def commits = jsonSlurper.parseText(commitData)
+
+    List<Map> result = []
+
+    for (commit in commits) {
+      Map data = [
+        commitId: commit.id,
+        commitUrl: commit.url,
+        message: commit.message,
+        authorName: commit.author.name,
+        authorUsername: commit.author.username,
+        time: commit.timestamp
+      ]
+
+      result.add(data)
+    }
+
+    return result
+  }
+
+  def showCommit() {
     def object = jsonSlurper.parseText('''[
     {
       "id": "633b208ab9dd9d56bd7efa143cd7721d89081640",
@@ -71,63 +92,63 @@ class Utils implements Serializable {
     return object
   }
 
-  def buildSection(String name, String value, String icon = ""){
+  def buildSection(String name, String value, String icon = '') {
     return [
-      type: "section", 
-      text: 
+      type: 'section',
+      text:
       [
-        type: "mrkdwn", 
+        type: 'mrkdwn',
         text: ":${icon}: *${name}:* ${value}"
       ]
     ]
   }
 
-  def buildSectionTitle(String name){
-    return [type: "section", text: [type: "mrkdwn", text: "*${name}:*"]]
+  def buildSectionTitle(String name) {
+    return [type: 'section', text: [type: 'mrkdwn', text: "*${name}:*"]]
   }
 
-  def buildDivider(){
-    return [type: "divider"]
+  def buildDivider() {
+    return [type: 'divider']
   }
 
-  def buildHeader(String msg, String icon){
+  def buildHeader(String msg, String icon) {
     return [
-      type: "header",
+      type: 'header',
       text: [
-        type: "plain_text",
+        type: 'plain_text',
         text: ":${icon}: ${msg}",
         emoji: true
       ]
     ]
   }
 
-  def buildCommitSection(String name, String username, String commitId, String commitUrl, String commitMessage, String commitTime){
+  def buildCommitSection(String name, String username, String commitId, String commitUrl, String commitMessage, String commitTime) {
     return [
       [
-        type: "section", 
-        text: 
+        type: 'section',
+        text:
         [
-          type: "mrkdwn", 
+          type: 'mrkdwn',
           text: ":hash: *Commit ID:* <${commitUrl}|${commitId}>"
         ]
       ],
       [
-        type: "section", 
-        text: 
+        type: 'section',
+        text:
         [
-          type: "mrkdwn", 
+          type: 'mrkdwn',
           text: ":pencil: *Message:* ${commitMessage}"
         ]
       ],
       [
-        type: "section",
+        type: 'section',
         fields: [
             [
-                type: "mrkdwn",
+                type: 'mrkdwn',
                 text: ":bust_in_silhouette: *Author:* ${name} (${username})"
             ],
             [
-                type: "mrkdwn",
+                type: 'mrkdwn',
                 text: ":calendar: *Time:* ${commitTime}"
             ]
         ]
@@ -135,14 +156,14 @@ class Utils implements Serializable {
     ]
   }
 
-  def buildCommits(){
+  def buildCommits() {
     def commits = showCommit()
 
     def divider = buildDivider()
 
     def result = []
 
-    for (commit in commits){
+    for (commit in commits) {
       def commitSection = buildCommitSection(commit.author.name, commit.author.username, commit.id, commit.url, commit.message, commit.timestamp)
 
       result = [
@@ -154,4 +175,5 @@ class Utils implements Serializable {
 
     return result
   }
+
 }
