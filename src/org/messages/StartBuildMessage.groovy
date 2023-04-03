@@ -7,8 +7,6 @@ import org.commons.Types
 import org.components.Header
 import org.components.Divider
 import org.components.SectionText
-import org.components.SectionField
-import org.components.BaseElement
 
 /**
  * Message sent when Jenkin pipelien was triggered
@@ -23,7 +21,7 @@ class StartBuildMessage {
   SectionText infoMsg
   Divider divider
 
-  List<Map> buildElemenets
+  BuildInfo buildInfo
 
   Header commitsHeader
   List<Map> commits = []
@@ -33,22 +31,55 @@ class StartBuildMessage {
     this.commitsData = commitsData
   }
 
-  /* groovylint-disable-next-line BuilderMethodWithSideEffects, FactoryMethodName */
-  void buildSlackElements() {
-    this.header = new Header('Pipeline started', 'construction')
-    String message = "${buildData.projectName} build & deploy pipeline has been launched"
-    this.infoMsg = new SectionText(message, '', Types.PLAIN_TEXT)
-    this.divider = new Divider()
-  }
-
   List<Map> toSlackBlock() {
+
+    this.buildSlackElements()
+    this.buildCommitsElement()
+
     List<Map> result = [
      this.header.toSlackElement(),
      this.infoMsg.toSlackElement(),
      this.divider.toSlackElement(),
+     *this.buildInfo.toSlackElement(),
+     this.divider.toSlackElement(),
+     this.commitsHeader.toSlackElement(),
+     *this.commits
     ]
 
     return result
+  }
+
+  /* groovylint-disable-next-line BuilderMethodWithSideEffects, FactoryMethodName */
+  private void buildSlackElements() {
+    this.header = new Header('Pipeline started', 'construction')
+    String message = "${buildData.projectName} build & deploy pipeline has been launched"
+    this.infoMsg = new SectionText(message, '', Types.PLAIN_TEXT)
+    this.divider = new Divider()
+
+    this.buildInfo = new BuildInfo(
+      [
+        projectName: buildData.projectName,
+        startedAt: buildData.startedAt,
+        gitBranch: buildData.gitBranch,
+        dockerImage: buildData.dockerImage,
+        pipelineId: buildData.pipelineId,
+        pipelineUrl: buildData.pipelineUrl,
+        triggeredBy: buildData.triggeredBy
+      ]
+    )
+
+    this.commitsHeader = new Header("Commits", "hash")
+  }
+
+  private void buildCommitsElement(){
+
+    for(item in this.commitsData){
+      Commit commit = new Commit(item)
+
+      this.commits.add(commit)
+      this.commits.add(this.divider.toSlackElement())
+    }
+
   }
 
 }

@@ -25,7 +25,7 @@ class Commit {
     this.message = data.message
     this.authorName = data.authorName
     this.authorUsername = data.authorUsername
-    this.time = data.times
+    this.time = data.time
   }
 
   void populateSlackElement() {
