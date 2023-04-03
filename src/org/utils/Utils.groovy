@@ -1,6 +1,6 @@
 package org.utils
 
-import groovy.json.*
+import groovy.json.JsonSlurper
 
 class Utils implements Serializable {
 
