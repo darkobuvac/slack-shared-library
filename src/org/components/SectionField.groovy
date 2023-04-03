@@ -29,7 +29,6 @@ class SectionField extends  BaseElement {
   }
 
   Map toSlackElement() {
-
     this.populateFields()
 
     return [

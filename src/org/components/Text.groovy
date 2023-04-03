@@ -11,13 +11,11 @@ import org.commons.Types
 class Text extends  BaseElement {
 
   String value
-  String type
   boolean emoji
 
   Text(String type, String value, boolean emoji = true) {
       super(type)
     this.value = value
-    this.type = type
     this.emoji = emoji
   }
 

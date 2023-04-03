@@ -11,34 +11,41 @@ import org.components.SectionField
 import org.components.BaseElement
 
 /**
- * Text element (shared element in all slack block elements)
+ * Message sent when Jenkin pipelien was triggered
  */
 @CompileDynamic
 class StartBuildMessage {
 
-  List<Map> buildData = []
+  Map buildData = [:]
   List<Map> commitsData = []
 
   Header header
   SectionText infoMsg
   Divider divider
 
-  List<BaseElement> buildElemenets
+  List<Map> buildElemenets
 
   Header commitsHeader
-  List<Commit> commits = []
+  List<Map> commits = []
 
-  StartBuildMessage(List<Map> commitsData, List<Map> buildData) {
+  StartBuildMessage(List<Map> commitsData, Map buildData) {
     this.buildData = buildData
     this.commitsData = commitsData
   }
 
-  List<Object> toSlackBlock() {
-    List<Object> result = [
+  /* groovylint-disable-next-line BuilderMethodWithSideEffects, FactoryMethodName */
+  void buildSlackElements() {
+    this.header = new Header('Pipeline started', 'construction')
+    String message = "${buildData.projectName} build & deploy pipeline has been launched"
+    this.infoMsg = new SectionText(message, '', Types.PLAIN_TEXT)
+    this.divider = new Divider()
+  }
+
+  List<Map> toSlackBlock() {
+    List<Map> result = [
      this.header.toSlackElement(),
      this.infoMsg.toSlackElement(),
      this.divider.toSlackElement(),
-     this.firstSection.toSlackElement()
     ]
 
     return result

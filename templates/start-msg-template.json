@@ -197,32 +197,145 @@
         ]
       }
     ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "header",
+        "text": {
+          "type": "plain_text",
+          "text": ":construction: Pipeline started",
+          "emoji": true
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "plain_text",
+          "text": "CxO Customer management build & deploy pipeline has been launched",
+          "emoji": true
+        }
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": ":rocket: *Project*: CxO Customer management"
+          },
+          {
+            "type": "mrkdwn",
+            "text": ":date: *Started at*: 2023-03-30 12:30 PM"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": ":git: *Git branch*: main"
+          },
+          {
+            "type": "mrkdwn",
+            "text": ":docker: *Docker image*: ghcr.io/codaxy/cxo-customer-management:latest"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": ":id: *Pipeline ID*: 55"
+          },
+          {
+            "type": "mrkdwn",
+            "text": ":link: *Pipeline*: <http://jenkins.codaxy.com:50888/job/CxO - CustomerManagement/65/|View pipeline on Jenkins>"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": ":bust_in_silhouette: *Triggered by*: Darko Buvac"
+        }
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "header",
+        "text": {
+          "type": "plain_text",
+          "text": ":hash: Commits",
+          "emoji": true
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Commit Id*: <https://github.com/codaxy/cxo-customer-management/commit/633b208ab9dd9d56bd7efa143cd7721d89081640|633b208ab9dd9d56bd7efa143cd7721d89081640>"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Message*: cascade on delete"
+        }
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Author*: Ognjen Katić (ognjenkatic)"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Time*: 2023-03-30 12:30 PM"
+          }
+        ]
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Commit Id*: <https://github.com/codaxy/cxo-customer-management/commit/633b208ab9dd9d56bd7efa143cd7721d89081640|633b208ab9dd9d56bd7efa143cd7721d89081640>"
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Message*: cascade on delete"
+        }
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Author*: Ognjen Katić (ognjenkatic)"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Time*: 2023-03-30 12:30 PM"
+          }
+        ]
+      },
+      {
+        "type": "divider"
+      }
+    ]
   }
 ]
-
-stage('Clonning git') {
-  steps {
-      git branch: 'main', credentialsId: 'github-token', url: 'https://github.com/codaxy/cxo-customer-management'
-  }
-}
-stage('Build docker image'){
-  steps{
-      sh 'docker build -t ghcr.io/codaxy/cxo-customer-management:latest -f ./src/CustomerManagement.Api/Dockerfile .'
-  }
-}
-stage('Upload docker image'){
-  steps{
-      withCredentials([usernamePassword(credentialsId: 'github-token', passwordVariable: 'password', usernameVariable: 'username')]) {
-          sh "echo $password | docker login ghcr.io -u $username --password-stdin"
-      }
-      
-      sh 'docker push ghcr.io/codaxy/cxo-customer-management:latest'
-  }
-}
-
-stage('Rebuild CxO stack'){
-  steps{
-      sh 'ssh buildagent@192.168.101.17 -i ~/.ssh/id_rsa \"cd /home/buildagent/cxo-composer/ && docker image pull ghcr.io/codaxy/cxo-customer-management:latest\"'
-      sh 'ssh buildagent@192.168.101.17 -i ~/.ssh/id_rsa \"cd /home/buildagent/cxo-composer/ && docker compose -f docker-compose.yml up customermanagement -d \"'
-  }
-}
