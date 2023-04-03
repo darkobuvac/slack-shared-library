@@ -37,7 +37,7 @@ class StartBuildMessage {
     this.buildSlackElements()
     this.buildCommitsElement()
 
-    Map header = this.commits.size() > 0 ? this.commitsHeader.toSlackElement() : [:]
+    Map header = this.commits.size() > 0 ? this.commitsHeader.toSlackElement() : null
 
     List<Map> result = [
      this.header.toSlackElement(),
