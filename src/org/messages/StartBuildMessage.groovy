@@ -7,6 +7,8 @@ import org.commons.Types
 import org.components.Header
 import org.components.Divider
 import org.components.SectionText
+import org.components.BuildInfo
+import org.components.Commit
 
 /**
  * Message sent when Jenkin pipelien was triggered
@@ -32,7 +34,6 @@ class StartBuildMessage {
   }
 
   List<Map> toSlackBlock() {
-
     this.buildSlackElements()
     this.buildCommitsElement()
 
@@ -68,18 +69,16 @@ class StartBuildMessage {
       ]
     )
 
-    this.commitsHeader = new Header("Commits", "hash")
+    this.commitsHeader = new Header('Commits', 'hash')
   }
 
-  private void buildCommitsElement(){
-
-    for(item in this.commitsData){
+  private void buildCommitsElement() {
+    for (item in this.commitsData) {
       Commit commit = new Commit(item)
 
       this.commits.add(commit)
       this.commits.add(this.divider.toSlackElement())
     }
-
   }
 
 }
