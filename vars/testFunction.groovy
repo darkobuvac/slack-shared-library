@@ -67,7 +67,6 @@ Map call() {
   )
 
   StartBuildMessage startMessage = new StartBuildMessage(
-    commits,
     [
       projectName: 'CxO Customer Management',
       startedAt: timestamp,

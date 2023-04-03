@@ -28,7 +28,7 @@ class StartBuildMessage {
   Header commitsHeader
   List<Map> commits = []
 
-  StartBuildMessage(List<Map> commitsData, Map buildData) {
+  StartBuildMessage(List<Map> commitsData = [], Map buildData) {
     this.buildData = buildData
     this.commitsData = commitsData
   }
