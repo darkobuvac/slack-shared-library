@@ -72,11 +72,15 @@ class StartBuildMessage {
     this.commitsHeader = new Header('Commits', 'hash')
   }
 
+  /* groovylint-disable-next-line BuilderMethodWithSideEffects, FactoryMethodName */
   private void buildCommitsElement() {
     for (item in this.commitsData) {
-      Commit commit = new Commit(item)
+      Commit commit = new Commit(item).toSlackElement()
 
-      this.commits.add(*commit.toSlackElement())
+      this.commits = [
+        *this.commits,
+        *commit
+      ]
       this.commits.add(this.divider.toSlackElement())
     }
   }
