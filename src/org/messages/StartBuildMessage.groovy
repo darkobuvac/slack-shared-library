@@ -48,6 +48,7 @@ class StartBuildMessage {
     ]
 
     if (this.commits.size() == 0) {
+      echo "${this.commits.size()}"
       result.remove(5)
     }
 
