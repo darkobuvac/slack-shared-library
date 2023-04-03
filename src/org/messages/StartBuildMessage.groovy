@@ -75,7 +75,7 @@ class StartBuildMessage {
   /* groovylint-disable-next-line BuilderMethodWithSideEffects, FactoryMethodName */
   private void buildCommitsElement() {
     for (item in this.commitsData) {
-      Commit commit = new Commit(item).toSlackElement()
+      List<Map> commit = new Commit(item).toSlackElement()
 
       this.commits = [
         *this.commits,
