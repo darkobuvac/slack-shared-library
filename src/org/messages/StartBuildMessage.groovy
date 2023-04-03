@@ -47,7 +47,7 @@ class StartBuildMessage {
      *this.commits
     ]
 
-    if (this.commits.size() <= 1) {
+    if (this.commits.size() == 0) {
       result.remove(5)
     }
 
