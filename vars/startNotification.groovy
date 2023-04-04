@@ -79,5 +79,5 @@ Map call(Map buildData = [:]) {
     ]
   )
 
-  return startMessage
+  return startMessage.toSlackBlock()
 }
