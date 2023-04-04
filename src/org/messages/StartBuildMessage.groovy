@@ -43,12 +43,9 @@ class StartBuildMessage {
      this.divider.toSlackElement(),
      *this.buildInfo.toSlackElement(),
      this.divider.toSlackElement(),
+     this.commitsHeader.toSlackElement(),
      *this.commits
     ]
-
-    if (this.commits.size() > 0) {
-      result.add(5, this.commitsHeader.toSlackElement())
-    }
 
     return result
   }
