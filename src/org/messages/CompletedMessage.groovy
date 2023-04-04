@@ -49,16 +49,20 @@ class CompletedMessage {
       '',
       Types.PLAIN_TEXT
     )
-    SectionText project = new SectionText("*Project*: ${this.projectName}", '', Types.MARK_DOWN)
-    SectionText dateTime = new SectionText("*Git branch*: ${timestamp}", '', Types.MARK_DOWN)
-    SectionText git = new SectionText("*Git branch*: ${this.gitBranch}", '', Types.MARK_DOWN)
-    SectionText docker = new SectionText("*Docker image*: ${this.dockerImage}", '', Types.MARK_DOWN)
-    SectionText pipelineId = new SectionText("*Pipeline Id*: ${this.pipelineId}", '', Types.MARK_DOWN)
+    SectionText project = new SectionText("*Project*: ${this.projectName}", 'rocket', Types.MARK_DOWN)
+    SectionText dateTime = new SectionText("*End at*: ${timestamp}", 'date', Types.MARK_DOWN)
+    SectionText git = new SectionText("*Git branch*: ${this.gitBranch}", 'git', Types.MARK_DOWN)
+    SectionText docker = new SectionText("*Docker image*: ${this.dockerImage}", 'docker', Types.MARK_DOWN)
+    SectionText pipelineId = new SectionText("*Pipeline Id*: ${this.pipelineId}", 'id', Types.MARK_DOWN)
     SectionText pipelineUrl = new SectionText(
       "*Pipeline*: <${this.pipelineUrl}|View pipeline on Jenkins>",
-      '',
+      'link',
       Types.MARK_DOWN)
-    SectionText triggeredBy = new SectionText("*Triggered By*: ${this.triggeredBy}", '', Types.MARK_DOWN)
+    SectionText triggeredBy = new SectionText(
+      "*Triggered By*: ${this.triggeredBy}", 
+      'bust_in_silhouette', 
+      Types.MARK_DOWN
+    )
 
     SectionText congratulation = new SectionText('*Greate job team!*', 'tada', Types.MARK_DOWN)
 
