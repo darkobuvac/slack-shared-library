@@ -79,5 +79,7 @@ Map call(Map buildData = [:]) {
     ]
   )
 
+  echo "${startMessage.toSlackBlock()}"
+
   return startMessage.toSlackBlock()
 }
