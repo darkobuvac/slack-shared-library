@@ -35,5 +35,7 @@ def call(Map data = [:]){
     successMessage
   ]
 
+  echo "${msg}"
+
   return msg
 }
