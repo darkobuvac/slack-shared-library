@@ -62,7 +62,7 @@ class BuildInfo {
     SectionField pipelineData = new SectionField([
       [
         value: "*Pipeline ID*: ${this.pipelineId}",
-        icon: 'git'
+        icon: 'id'
       ],
       [
         value: "*Pipeline*: <${this.pipelineUrl}|View pipeline on Jenkins>",
