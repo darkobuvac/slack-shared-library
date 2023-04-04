@@ -22,8 +22,7 @@ class Text extends  BaseElement {
   Map toSlackElement() {
     Map result = [
       type: this.type,
-      value: this.value,
-
+      text: this.value,
     ]
 
     if (this.type == Types.PLAIN_TEXT) {
