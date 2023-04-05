@@ -7,7 +7,7 @@ Map call(Map pipelineData = [:]) {
 
   Utils utils = new Utils()
 
-  List<Map> commits = utils.mapCommits(data.commits)
+  List<Map> commits = utils.mapCommits(pipelineData.commits)
 
   StartBuildMessage startMessage = new StartBuildMessage(
     commits,
