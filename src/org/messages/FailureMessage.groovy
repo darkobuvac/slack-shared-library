@@ -9,21 +9,20 @@ import org.components.Divider
 import org.components.SectionText
 
 /**
- * Message sent when Jenkin pipeline completes
+ * Message sent on failure
  */
 @CompileDynamic
-class CompletedMessage {
+class FailureMessage {
 
   String projectName
   String gitBranch
-  String dockerImage
   String pipelineId
   String pipelineUrl
   String triggeredBy
 
   private List<Map> slackElements = []
 
-  CompletedMessage(Map data = [:]) {
+  FailureMessage(Map data = [:]) {
     this.projectName = data.projectName
     this.gitBranch = data.gitBranch
     this.dockerImage = data.dockerImage
@@ -43,17 +42,16 @@ class CompletedMessage {
 
     Divider divider = new Divider()
 
-    Header header = new Header("Build #${this.pipelineId} completed", 'white_check_mark')
+    Header header = new Header("Build #${this.pipelineId} failed", 'alert')
     SectionText subtitle = new SectionText(
-      "${this.projectName} build & deploy pipeline has been completed",
+      "${this.projectName} build & deploy pipeline has failed",
       '',
       Types.PLAIN_TEXT
     )
     SectionText project = new SectionText("*Project*: ${this.projectName}", 'rocket', Types.MARK_DOWN)
-    SectionText dateTime = new SectionText("*End at*: ${timestamp}", 'date', Types.MARK_DOWN)
+    SectionText dateTime = new SectionText("*Failed at*: ${timestamp}", 'date', Types.MARK_DOWN)
     SectionText git = new SectionText("*Git branch*: ${this.gitBranch}", 'git', Types.MARK_DOWN)
-    SectionText docker = new SectionText("*Docker image*: ${this.dockerImage}", 'docker', Types.MARK_DOWN)
-    SectionText pipelineId = new SectionText("*Pipeline Id*: ${this.pipelineId}", 'id', Types.MARK_DOWN)
+    SectionText pipelineId = new SectionText("*Build Id*: ${this.pipelineId}", 'id', Types.MARK_DOWN)
     SectionText pipelineUrl = new SectionText(
       "*Pipeline*: <${this.pipelineUrl}|View pipeline on Jenkins>",
       'link',
@@ -64,7 +62,11 @@ class CompletedMessage {
       Types.MARK_DOWN
     )
 
-    SectionText congratulation = new SectionText('*Greate job team!*', 'tada', Types.MARK_DOWN)
+    SectionText sadMessage = new SectionText(
+      "*Uh, looks like Jenkins pipeline hit a snag and couldn't make it to the finish line*",
+      'cry',
+      Types.MARK_DOWN
+    )
 
     List<Map> result = [
       header.toSlackElement(),
@@ -73,12 +75,11 @@ class CompletedMessage {
       project.toSlackElement(),
       dateTime.toSlackElement(),
       git.toSlackElement(),
-      docker.toSlackElement(),
       pipelineId.toSlackElement(),
       pipelineUrl.toSlackElement(),
       triggeredBy.toSlackElement(),
       divider.toSlackElement(),
-      congratulation.toSlackElement(),
+      sadMessage.toSlackElement(),
     ]
 
     this.slackElements = result

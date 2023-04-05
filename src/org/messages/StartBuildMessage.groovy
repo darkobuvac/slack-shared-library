@@ -52,7 +52,7 @@ class StartBuildMessage {
 
   /* groovylint-disable-next-line BuilderMethodWithSideEffects, FactoryMethodName */
   private void buildSlackElements() {
-    this.header = new Header('Pipeline started', 'construction')
+    this.header = new Header("Build #${buildData.pipelineId} started", 'construction')
     String message = "${buildData.projectName} build & deploy pipeline has been launched"
     this.infoMsg = new SectionText(
       message,

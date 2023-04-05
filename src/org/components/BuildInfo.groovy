@@ -61,7 +61,7 @@ class BuildInfo {
 
     SectionField pipelineData = new SectionField([
       [
-        value: "*Pipeline ID*: ${this.pipelineId}",
+        value: "*Build ID*: ${this.pipelineId}",
         icon: 'id'
       ],
       [
