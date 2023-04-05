@@ -25,7 +25,6 @@ class FailureMessage {
   FailureMessage(Map data = [:]) {
     this.projectName = data.projectName
     this.gitBranch = data.gitBranch
-    this.dockerImage = data.dockerImage
     this.pipelineId = data.pipelineId
     this.pipelineUrl = data.pipelineUrl
     this.triggeredBy = data.triggeredBy
