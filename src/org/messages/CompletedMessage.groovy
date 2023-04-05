@@ -9,7 +9,7 @@ import org.components.Divider
 import org.components.SectionText
 
 /**
- * Message sent when Jenkin pipelien was triggered
+ * Message sent when Jenkin pipeline completes
  */
 @CompileDynamic
 class CompletedMessage {

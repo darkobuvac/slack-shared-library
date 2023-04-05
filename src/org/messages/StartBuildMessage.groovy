@@ -54,7 +54,11 @@ class StartBuildMessage {
   private void buildSlackElements() {
     this.header = new Header('Pipeline started', 'construction')
     String message = "${buildData.projectName} build & deploy pipeline has been launched"
-    this.infoMsg = new SectionText(message, '', Types.PLAIN_TEXT)
+    this.infoMsg = new SectionText(
+      message,
+      '',
+      Types.PLAIN_TEXT)
+
     this.divider = new Divider()
 
     this.buildInfo = new BuildInfo(
