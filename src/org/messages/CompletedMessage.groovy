@@ -64,7 +64,7 @@ class CompletedMessage {
       Types.MARK_DOWN
     )
 
-    SectionText congratulation = new SectionText('*Greate job team!*', 'tada', Types.MARK_DOWN)
+    SectionText congratulation = new SectionText('*Great job team!*', 'tada', Types.MARK_DOWN)
 
     List<Map> result = [
       header.toSlackElement(),
