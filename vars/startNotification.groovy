@@ -7,10 +7,28 @@ Map call(Map pipelineData = [:]) {
 
   Utils utils = new Utils()
 
-  List<Map> commits = utils.mapCommits(pipelineData.commits)
+  def key = "commits"
 
-  StartBuildMessage startMessage = new StartBuildMessage(
-    commits,
+  if(pipelineData[key]){
+    List<Map> commits = utils.mapCommits(pipelineData.commits)
+
+    StartBuildMessage startMessage = new StartBuildMessage(
+      commits,
+      [
+        projectName: pipelineData.projectName,
+        startedAt: timestamp,
+        gitBranch: pipelineData.gitBranch,
+        dockerImage: pipelineData.dockerImage,
+        pipelineId: pipelineData.pipelineId,
+        pipelineUrl: pipelineData.pipelineUrl,
+        triggeredBy: pipelineData.triggeredBy
+      ]
+    )
+
+    return startMessage.toSlackBlock()
+  }
+
+  StartBuildMessageWithoutCommits message = new StartBuildMessageWithoutCommits(
     [
       projectName: pipelineData.projectName,
       startedAt: timestamp,
@@ -22,5 +40,5 @@ Map call(Map pipelineData = [:]) {
     ]
   )
 
-  return startMessage.toSlackBlock()
+  return message.toSlackBlock()
 }
