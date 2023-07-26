@@ -1,5 +1,6 @@
 
 import org.messages.StartBuildMessage
+import org.messages.StartBuildMessageWithoutCommits
 import org.utils.Utils
 
 Map call(Map pipelineData = [:]) {
