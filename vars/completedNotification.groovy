@@ -1,6 +1,9 @@
 import org.messages.CompletedMessage
 
 Map call(Map pipelineData = [:]) {
+
+  pipelineData.triggeredBy = pipelineData.triggeredBy ?: "SCM Change"
+
   CompletedMessage message = new CompletedMessage(
     [
       projectName: pipelineData.projectName,

@@ -10,6 +10,8 @@ Map call(Map pipelineData = [:]) {
 
   def key = "commits"
 
+  pipelineData.triggeredBy = pipelineData.triggeredBy ?: "SCM Change"
+
   if(pipelineData[key]){
     List<Map> commits = utils.mapCommits(pipelineData.commits)
 
