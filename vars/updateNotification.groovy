@@ -1,6 +1,6 @@
 import org.components.SectionText
 
-Map call(List<Map> blocks = []) {
+def call(List<Map> blocks = []) {
 
   SectionText completedMessage = new SectionText(
       '*The build and deploy pipeline has successfully completed*',
