@@ -56,7 +56,7 @@ class StartBuildMessageWithoutCommits {
     this.loadingMsg = new SectionText(
       '*Deployment in progress...*',
       'loading',
-      Types.PLAIN_TEXT)
+      Types.MARK_DOWN)
 
     this.divider = new Divider()
 
