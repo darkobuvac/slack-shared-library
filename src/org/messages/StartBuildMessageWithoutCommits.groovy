@@ -23,6 +23,8 @@ class StartBuildMessageWithoutCommits {
 
   BuildInfo buildInfo
 
+  SectionText loadingMsg
+
   StartBuildMessageWithoutCommits(Map buildData) {
     this.buildData = buildData
   }
@@ -36,6 +38,7 @@ class StartBuildMessageWithoutCommits {
      this.divider.toSlackElement(),
      *this.buildInfo.toSlackElement(),
      this.divider.toSlackElement(),
+     this.loadingMsg.toSlackElement()
     ]
 
     return result
@@ -48,6 +51,11 @@ class StartBuildMessageWithoutCommits {
     this.infoMsg = new SectionText(
       message,
       '',
+      Types.PLAIN_TEXT)
+
+    this.loadingMsg = new SectionText(
+      '*Deployment in progress...*',
+      'loading',
       Types.PLAIN_TEXT)
 
     this.divider = new Divider()

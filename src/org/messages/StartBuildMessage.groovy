@@ -28,6 +28,8 @@ class StartBuildMessage {
   Header commitsHeader
   List<Map> commits = []
 
+  SectionText loadingMsg
+
   StartBuildMessage(List<Map> commitsData = [], Map buildData) {
     this.buildData = buildData
     this.commitsData = commitsData
@@ -44,7 +46,9 @@ class StartBuildMessage {
      *this.buildInfo.toSlackElement(),
      this.divider.toSlackElement(),
      this.commitsHeader.toSlackElement(),
-     *this.commits
+     *this.commits,
+     this.divider.toSlackElement(),
+     this.loadingMsg.toSlackElement()
     ]
 
     return result
@@ -57,6 +61,11 @@ class StartBuildMessage {
     this.infoMsg = new SectionText(
       message,
       '',
+      Types.PLAIN_TEXT)
+
+    this.loadingMsg = new SectionText(
+      '*Deployment in progress...*',
+      'loading',
       Types.PLAIN_TEXT)
 
     this.divider = new Divider()
