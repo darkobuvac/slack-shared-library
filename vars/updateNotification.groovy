@@ -1,4 +1,5 @@
 import org.components.SectionText
+import org.commons.Types
 
 def call(List<Map> blocks = []) {
 
