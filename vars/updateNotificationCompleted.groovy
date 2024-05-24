@@ -1,4 +1,3 @@
-import groovy.transform.CompileDynamic
 import org.components.SectionText
 
 Map call(List<Map> blocks = []) {
