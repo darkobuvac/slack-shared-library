@@ -47,7 +47,6 @@ class StartBuildMessage {
      this.divider.toSlackElement(),
      this.commitsHeader.toSlackElement(),
      *this.commits,
-     this.divider.toSlackElement(),
      this.loadingMsg.toSlackElement()
     ]
 
