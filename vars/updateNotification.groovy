@@ -6,12 +6,12 @@ def call(List<Map> blocks = [], Map data = [:]) {
 
   SectionText completedMessage = new SectionText(
       '*The build and deploy pipeline has successfully completed!*',
-      'white_check_mark',
+      'success',
       Types.MARK_DOWN)
 
   SectionText failedMessage = new SectionText(
       '*The build and deploy pipeline has encountered an error and failed!*',
-      'x',
+      'red-x-mark',
       Types.MARK_DOWN)
 
   Header successHeader = new Header("${data.projectName}: Build #${data.pipelineId} completed", 'white_check_mark')
