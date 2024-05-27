@@ -11,11 +11,11 @@ def call(List<Map> blocks = [], Map data = [:]) {
 
   SectionText failedMessage = new SectionText(
       '*The build and deploy pipeline has encountered an error and failed!*',
-      'alert',
+      'no-entry',
       Types.MARK_DOWN)
 
   Header successHeader = new Header("${data.projectName}: Build #${data.pipelineId} completed", 'white_check_mark')
-  Header failedHeader = new Header("${data.projectName}: Build #${data.pipelineId} failed", 'no-entry')
+  Header failedHeader = new Header("${data.projectName}: Build #${data.pipelineId} failed", 'alert')
 
   blocks.remove(0)
   blocks.remove(blocks.size() - 1)
