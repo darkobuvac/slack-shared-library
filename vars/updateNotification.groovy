@@ -21,10 +21,10 @@ def call(List<Map> blocks = [], Map data = [:]) {
   blocks.remove(blocks.size() - 1)
 
   if(data.status == 1){
-    blocks.add(0, successHeader)
+    blocks.add(0, successHeader.toSlackElement())
     blocks.add(completedMessage.toSlackElement())
   }else{
-    blocks.add(0, failedHeader)
+    blocks.add(0, failedHeader.toSlackElement())
     blocks.add(failedMessage.toSlackElement())
   }
 
