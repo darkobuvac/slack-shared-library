@@ -24,7 +24,7 @@ class Header extends  BaseElement {
 
     String headerMsg = StringUtils.isBlank(icon) ? "${this.title}" : ":${this.icon}: ${this.title}"
 
-    headerMsg = StringUtils.isBlank(trailIcon) ? "${headerMsg} :${this.trailIcon}:" : "${headerMsg}"
+    headerMsg = StringUtils.isBlank(trailIcon) ? "${headerMsg}" : "${headerMsg} :${this.trailIcon}:"
 
     this.text = new Text(Types.PLAIN_TEXT, headerMsg)
   }
