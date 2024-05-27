@@ -14,8 +14,8 @@ def call(List<Map> blocks = [], Map data = [:]) {
       'red-x-mark',
       Types.MARK_DOWN)
 
-  Header successHeader = new Header("${data.projectName}: Build #${data.pipelineId} completed", 'white_check_mark')
-  Header failedHeader = new Header("${data.projectName}: Build #${data.pipelineId} failed", 'alert')
+  Header successHeader = new Header("${data.projectName}: Build #${data.pipelineId} completed", 'white_check_mark', 'white_check_mark')
+  Header failedHeader = new Header("${data.projectName}: Build #${data.pipelineId} failed", 'alert', 'alert')
 
   blocks.remove(0)
   blocks.remove(blocks.size() - 1)
