@@ -11,7 +11,7 @@ def call(List<Map> blocks = [], Map data = [:]) {
 
   SectionText failedMessage = new SectionText(
       '*The build and deploy pipeline has encountered an error and failed!*',
-      'no-entry',
+      'x',
       Types.MARK_DOWN)
 
   Header successHeader = new Header("${data.projectName}: Build #${data.pipelineId} completed", 'white_check_mark')
