@@ -46,7 +46,7 @@ class StartBuildMessageWithoutCommits {
 
   /* groovylint-disable-next-line BuilderMethodWithSideEffects, FactoryMethodName */
   private void buildSlackElements() {
-    this.header = new Header("Build #${buildData.pipelineId} started", 'construction')
+    this.header = new Header("${buildData.projectName}: Build #${buildData.pipelineId} in progress", 'loading')
     String message = "${buildData.projectName} build & deploy pipeline has been launched"
     this.infoMsg = new SectionText(
       message,
