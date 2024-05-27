@@ -34,7 +34,6 @@ class StartBuildMessageWithoutCommits {
 
     List<Map> result = [
      this.header.toSlackElement(),
-     this.infoMsg.toSlackElement(),
      this.divider.toSlackElement(),
      *this.buildInfo.toSlackElement(),
      this.divider.toSlackElement(),
